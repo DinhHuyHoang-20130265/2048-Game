@@ -35,9 +35,8 @@ public class GameBoard implements IGameBoard {
 	@Override
 	public void removeObserver(Observer go) {
 		int i = observers.indexOf(go);
-		if (i >= 0) {
+		if (i >= 0)
 			observers.remove(i);
-		}
 	}
 
 	@Override
@@ -66,10 +65,8 @@ public class GameBoard implements IGameBoard {
 		saveScore = false;
 		lose = false;
 		tiles = new Tile[n * n];
-		for (int i = 0; i < tiles.length; i++) {
+		for (int i = 0; i < tiles.length; i++)
 			tiles[i] = new Tile();
-		}
-
 		addTile();
 		addTile();
 		change(tiles);
@@ -82,13 +79,11 @@ public class GameBoard implements IGameBoard {
 			Tile[] line = getLine(i);
 			Tile[] merged = mergeLine(moveLine(line));
 			setLine(i, merged);
-			if (!needAddTile && !compare(line, merged)) {
+			if (!needAddTile && !compare(line, merged))
 				needAddTile = true;
-			}
 		}
-		if (needAddTile) {
+		if (needAddTile)
 			addTile();
-		}
 		pressedNumber++;
 		change(tiles);
 	}
@@ -107,7 +102,6 @@ public class GameBoard implements IGameBoard {
 		leftMove();
 		tiles = rotate(90);
 		change(tiles);
-
 	}
 
 	@Override
@@ -116,7 +110,6 @@ public class GameBoard implements IGameBoard {
 		leftMove();
 		tiles = rotate(270);
 		change(tiles);
-
 	}
 
 	private Tile tileAt(int x, int y) {
@@ -135,9 +128,8 @@ public class GameBoard implements IGameBoard {
 	private List<Tile> availableSpace() {
 		final List<Tile> list = new ArrayList<Tile>(n * n);
 		for (Tile t : tiles) {
-			if (t.isEmpty()) {
+			if (t.isEmpty())
 				list.add(t);
-			}
 		}
 		return list;
 	}
@@ -148,16 +140,14 @@ public class GameBoard implements IGameBoard {
 
 	@Override
 	public boolean canMove() {
-		if (!isFull()) {
+		if (!isFull())
 			return true;
-		}
 		for (int x = 0; x < n; x++) {
 			for (int y = 0; y < n; y++) {
 				Tile t = tileAt(x, y);
 				if ((x < n - 1 && t.value == tileAt(x + 1, y).value)
-						|| ((y < n - 1) && t.value == tileAt(x, y + 1).value)) {
+						|| ((y < n - 1) && t.value == tileAt(x, y + 1).value))
 					return true;
-				}
 			}
 		}
 		return false;
@@ -168,7 +158,6 @@ public class GameBoard implements IGameBoard {
 			return true;
 		else if (line1.length != line2.length)
 			return false;
-
 		for (int i = 0; i < line1.length; i++) {
 			if (line1[i].value != line2[i].value)
 				return false;
@@ -183,7 +172,6 @@ public class GameBoard implements IGameBoard {
 			offsetY = 0;
 		else if (angle == 270)
 			offsetX = 0;
-
 		double rad = Math.toRadians(angle);
 		int cos = (int) Math.cos(rad);
 		int sin = (int) Math.sin(rad);

@@ -5,18 +5,18 @@ import java.awt.event.ActionListener;
 
 import Model.IGameBoard;
 import View.ButtonPanel;
-import View.GameLevelPanel;
+import View.GameLevel;
 import View.GamePlayPanel;
 import View.GameView;
 
 public class LevelController implements ActionListener {
 	private IGameBoard igameboard;
 	private GameView gameview;
-	private GameLevelPanel gamelevel;
+	private GameLevel gamelevel;
 	private ButtonPanel buttonpanel;
 	private GamePlayPanel gameplaypanel;
 
-	public LevelController(IGameBoard igameboard, GameView gameview, GameLevelPanel gamelevel, ButtonPanel buttonpanel,
+	public LevelController(IGameBoard igameboard, GameView gameview, GameLevel gamelevel, ButtonPanel buttonpanel,
 			GamePlayPanel gameplaypanel) {
 		this.igameboard = igameboard;
 		this.gameview = gameview;

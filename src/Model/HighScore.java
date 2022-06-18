@@ -6,7 +6,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Scanner;
 
 public class HighScore {
@@ -21,9 +20,8 @@ public class HighScore {
 		try {
 			File file = new File("src/score/top5score.txt");
 			// if file doesnt exists, then create it
-			if (!file.exists()) {
+			if (!file.exists())
 				file.createNewFile();
-			}
 			// true = append file
 			fw = new FileWriter(file.getAbsoluteFile(), true);
 			bw = new BufferedWriter(fw);
@@ -79,26 +77,18 @@ public class HighScore {
 			Scanner sc = new Scanner(file);
 			sc.useDelimiter("[\\s]+");
 
-			while (sc.hasNext()) {
+			while (sc.hasNext())
 				list.add(sc.nextInt());
-			}
 			sc.close();
 		} catch (IOException e) {
 		}
-
-		Collections.sort(list, new Comparator<Integer>() {
-			@Override
-			public int compare(Integer o1, Integer o2) {
-				return o2 - o1;
-			}
-
+		Collections.sort(list, (o1, o2) -> {
+			return (o1 - o2);
 		});
 
 		// add top 5;
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 5; i++)
 			result.add(list.get(i));
-		}
-
 		return result;
 	}
 
@@ -119,19 +109,13 @@ public class HighScore {
 			e.printStackTrace();
 		}
 
-		Collections.sort(list, new Comparator<Integer>() {
-			@Override
-			public int compare(Integer o1, Integer o2) {
-				return o1 - o2;
-			}
-
+		Collections.sort(list, (o1, o2) -> {
+			return (o1 - o2);
 		});
 
 		// add top 5;
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 5; i++)
 			result.add(list.get(i));
-		}
-
 		return result;
 	}
 

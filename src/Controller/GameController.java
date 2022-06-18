@@ -4,17 +4,17 @@ import java.awt.event.KeyAdapter;
 
 import Model.IGameBoard;
 import View.ButtonPanel;
-import View.GameLevelPanel;
+import View.GameLevel;
 import View.GamePlayPanel;
 import View.GameView;
 
 public class GameController extends KeyAdapter implements Controller {
 	private IGameBoard iGameBoard;
-	private GameLevelPanel gamelevel;
+	private GameLevel gamelevel;
 	private ButtonPanel buttonpanel;
 	private GamePlayPanel gameplaypanel;
 
-	public GameController(GameView gameview, GameLevelPanel gamelevel) {
+	public GameController(GameView gameview, GameLevel gamelevel) {
 		this.gamelevel = gamelevel;
 		iGameBoard = gameview.getGameboard();
 		buttonpanel = gameview.getButtonPanel();

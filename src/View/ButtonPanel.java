@@ -19,15 +19,17 @@ public class ButtonPanel extends JPanel {
 
 	private static final Font FONT_BTN = new Font("jbutton", Font.BOLD, 16);
 	private static final Font FONT_LB = new Font("jlabel", Font.PLAIN, 18);
+	private static final int WIDTH = 150;
+	private static final int HEIGHT = 340;
 	int n = 4;
 
 	public ButtonPanel() {
-		setPreferredSize(new Dimension(150, 350));
 		initUI();
 	}
 
 	public void setSize(int level) {
 		n = level;
+		setPreferredSize(new Dimension(WIDTH, HEIGHT * (n / 4)));
 	}
 
 	public void initUI() {
@@ -57,6 +59,7 @@ public class ButtonPanel extends JPanel {
 		btnQuit.setBounds(10, 250, 130, 35);
 		add(btnQuit);
 
+		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 	}
 
 	public JLabel getPresslb() {

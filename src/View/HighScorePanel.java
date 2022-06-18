@@ -39,6 +39,7 @@ public class HighScorePanel extends JFrame {
 		initUI();
 		setLocation(550, 220);
 		setSize(WIDTH, HEIGHT);
+		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
 	}

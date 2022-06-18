@@ -81,20 +81,17 @@ public class GamePlayPanel extends JPanel {
 			g.setColor(new Color(255, 255, 255, 30));
 			g.fillRect(0, 0, getWidth(), getHeight());
 			g.setColor(new Color(78, 139, 202));
-			g.setFont(new Font(FONT_NAME, Font.BOLD, 48));
-			if (gameboard.isWin()) {
-				g.drawString("YOU WIN!", 25, 150);
-			}
-			if (gameboard.isLose()) {
-				g.drawString("GAME OVER!", 25, 150);
-			}
+			g.setFont(new Font(FONT_NAME, Font.BOLD, (int) (48 * (n / 4))));
+			if (gameboard.isWin())
+				g.drawString("YOU WIN!", (int) ((WIDTH * (n / 4)) / 20), (int) ((HEIGHT * (n / 4) / 2)));
+			if (gameboard.isLose())
+				g.drawString("GAME OVER!", getWidth() / 20, getHeight() / 2);
 			if (gameboard.isWin() || gameboard.isLose()) {
-				g.setFont(new Font(FONT_NAME, Font.PLAIN, 16));
+				g.setFont(new Font(FONT_NAME, Font.PLAIN, (int) (16 * (n / 4))));
 				g.setColor(new Color(128, 128, 128, 128));
-				g.drawString("press ESC to reset game", 80, getHeight() - 40);
+				g.drawString("press ESC to reset game", (int) ((WIDTH * (n / 4)) / 4), getHeight() - 40);
 			}
 			g.setFont(new Font(FONT_NAME, Font.PLAIN, 18));
-			g.drawString("Score: " + gameboard.getScore(), WIDTH + (550 - WIDTH) / 2, 20);
 		}
 	}
 
